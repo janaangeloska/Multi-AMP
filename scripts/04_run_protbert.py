@@ -304,7 +304,6 @@ def train_protbert_multilabel(train_df, val_df, test_df, dataset_name,
                                           freeze_bert=freeze_bert)
     model = model.to(device)
 
-    # BCEWithLogitsLoss for multilabel
     criterion = AsymmetricLoss(gamma_pos=0, gamma_neg=4, clip=0.05)
     optimizer = torch.optim.AdamW(
         model.parameters(), 
